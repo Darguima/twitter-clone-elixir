@@ -4,6 +4,14 @@ A Twitter Clone to start learning Elixir and Phoenix.
 
 Based on a [Youtube Video](https://www.youtube.com/watch?v=MZvmYaFkNJI).
 
+## Ecto
+
+To create the database run with Docker installed:
+
+```
+docker run --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
+```
+
 ## Elixir Docs
 
 To start your Phoenix server:
