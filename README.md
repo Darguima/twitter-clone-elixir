@@ -4,6 +4,14 @@ A Twitter Clone to start learning Elixir and Phoenix.
 
 Based on a [Youtube Video](https://www.youtube.com/watch?v=MZvmYaFkNJI).
 
+## Demo
+
+This are the screenshots of the first stage of this Twitter Clone.
+
+![alt text](./readme/demo.png)
+
+https://user-images.githubusercontent.com/49988070/211148974-6b1468aa-6f11-40a3-806c-6b2b3ebb1060.mp4
+
 ## Ecto
 
 To create the database run with Docker installed:
