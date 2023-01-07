@@ -19,14 +19,28 @@ defmodule TwitterCloneElixirWeb.PostLive.PostComponent do
 
         <div class="row">
 
-          <div class="column" style="display: flex; align-items: center">
-            <div><%= @post.likes_count %></div>
-            <image src="https://img.icons8.com/ios/512/loading-heart.png" style="width: 20px; height: 20px; margin-left: 8px"/>
+          <div class="column">
+            <a
+              href="#"
+              phx-click="like"
+              phx-target={@myself}
+              style="display: flex; align-items: center"
+            >
+              <div><%= @post.likes_count %></div>
+              <image src="https://img.icons8.com/ios/512/loading-heart.png" style="width: 20px; height: 20px; margin-left: 8px"/>
+            </a>
           </div>
 
-          <div class="column" style="display: flex; align-items: center">
-            <div><%= @post.reposts_count %></div>
-            <image src="https://img.icons8.com/ios/512/retweet.png" style="width: 20px; height: 20px; margin-left: 8px"/>
+          <div class="column">
+            <a
+              href="#"
+              phx-click="repost"
+              phx-target={@myself}
+              style="display: flex; align-items: center"
+            >
+              <div><%= @post.reposts_count %></div>
+              <image src="https://img.icons8.com/ios/512/retweet.png" style="width: 20px; height: 20px; margin-left: 8px"/>
+            </a>
           </div>
 
           <div class="column" style="display: flex; align-items: center">
@@ -41,5 +55,15 @@ defmodule TwitterCloneElixirWeb.PostLive.PostComponent do
         </div>
       </div>
     """
+  end
+
+  def handle_event("like", _, socket) do
+    TwitterCloneElixir.Timeline.inc_likes(socket.assigns.post)
+    {:noreply, socket}
+  end
+
+  def handle_event("repost", _, socket) do
+    TwitterCloneElixir.Timeline.inc_reposts(socket.assigns.post)
+    {:noreply, socket}
   end
 end
